@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html ng-app="mainModule">
+<head>
+    <meta charset="utf-8" />
+    <title="Apply"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script>
+      angular.module("mainModule",[])
+      .controller("FirstController",function($scope){
+          $scope.nombre="Javier";
+          //Cambia el nombre después de 2 segundos
+          setTimeout(function(){
+            //$scope.nombre="JavCarFer";
+            //console.log($scope.nombre);
+            //Mira si ha habido variación en $scope y la actualiza
+            //$scope.$digest();, aunque es mejor usar la siguiente:
+            $scope.$apply(function(){
+              $scope.nombre="JavCarFer";
+              console.log($scope.nombre);
+            });
+            //No se actualizaría normalmente con jQuery si no tiene dentro el $apply, no hace falta con
+            //las directivas de angular
+          },2000);
+      });
+    </script>
+</head>
+<body ng-controller="FirstController">
+    <h1>{{nombre}}</h1>
+</body>
+</html>
