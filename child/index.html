@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html ng-app="MyFirstApp">
+<head>
+    <meta charset="utf-8" />
+    <title="Ghilds"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script src="angular-local-storage.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="FirstController">
+  {{nombre}}
+  <p>
+    Valor del padre:
+    <strong>{{$parent.nombre}}</strong>
+    <div ng-controller="ChildController">
+      Valor del padre desde el hijo:
+      <strong>{{$parent.$parent.nombre}}</strong>
+      <br />
+      Valor del hijo:
+      <strong>{{nombre}}</strong>
+      <br />
+      Nuevo valor del hijo:
+      <input type="text" ng-model="nombre" />
+      <br />
+      Nuevo valor para el hijo y el nombre:
+      <input type="text" ng-model="$parent.nombre" />
+    </div>
+  </p>
+</body>
+</html>
