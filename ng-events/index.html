@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html ng-app>
+<head>
+    <style>
+      .hover{
+        background-color: rgb(200,50,50);
+      }
+      .no-hover{
+        background-color: rgb(50,200,50);
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title="To Do List"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+</head>
+<body>
+  <button ng-click="bandera=!bandera" ng-class="{'hover':bandera,'no-hover':!bandera}"> Over me</button>
+  <span ng-show="bandera">&lt; - click me</span>
+  <p>
+  {{bandera | json}}
+  </p>
+</body>
+</html>
